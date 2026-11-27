@@ -1,0 +1,6 @@
+# Local gate: fast tests only (seconds). The slow validation tests
+# (pytest -m slow) run on the desktop:
+#   tools/desk.sh run <name> python -m pytest -q -m slow
+# Phase gate G1 needs both: this gate PASS and the desktop run exit 0.
+set -euo pipefail
+~/.venvs/stable/bin/python -m pytest -q -m "not slow"
